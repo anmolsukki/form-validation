@@ -2,37 +2,125 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Table */
+#customers {
+  font-family: 'Trebuchet MS', Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+#customers td,
+#customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+#customers tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+#customers tr:hover {
+  background-color: #ddd;
+}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: #4caf50;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+/* Button */
+.btn {
+  box-sizing: border-box;
+  background-color: transparent;
+  border: 2px solid #e74c3c;
+  border-radius: 0.6em;
+  align-self: center;
+  font-size: 0.7rem;
+  line-height: 1;
+  padding: 0.5em 1.5em;
+  text-decoration: none;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.btn:hover,
+.btn:focus {
+  color: #fff;
+  outline: 0;
+}
+
+.third {
+  border-color: #3498db;
+  color: #fff;
+  box-shadow: 0 0 40px 40px #3498db inset, 0 0 0 0 #3498db;
+  -webkit-transition: all 150ms ease-in-out;
+  transition: all 150ms ease-in-out;
+}
+
+.third:hover {
+  box-shadow: 0 0 10px 0 #3498db inset, 0 0 10px 4px #3498db;
+}
+
+/* Modal */
+.modal-lg {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background-color: rgb(48 63 92 / 78%);
+  z-index: 30;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  padding: 0;
+}
+
+.rs-inner-popup {
+  overflow-x: hidden;
+}
+
+.modal-body {
+  background: #fff;
+}
+
+.purple-close {
+  border: none;
+  border-radius: 28px;
+  color: #fff;
+  opacity: 1;
+  font-size: 20px;
+  font-weight: 300;
+  width: 69px;
+  margin-top: -28px;
+  margin-right: -31px;
+  padding: 30px 30px 10px 5px;
+  outline: none;
+  float: right;
+  cursor: pointer;
+  background: blue;
+}
+
+.submit-section {
+  text-align: center;
+  padding: 44px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.head-submit {
+  font-size: 26px;
+  color: #0000008a;
 }
