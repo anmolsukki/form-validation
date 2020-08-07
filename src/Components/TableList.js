@@ -6,6 +6,9 @@ const TableList = () => {
     const [tableData, setTableData] = React.useState([])
     const [userData, setUserData] = React.useState({})
     const [isOpen, setIsOpen] = React.useState(false)
+    const [indicativeSize, setIndicativeSize] = React.useState('');
+    const [cleanPrice, setCleanPrice] = React.useState('');
+    const [validations, setValidations] = React.useState({});
 
     React.useEffect(() => {
         getMarketPrice()
@@ -28,6 +31,32 @@ const TableList = () => {
         setIsOpen(val)
         setUserData(data)
     }
+
+    
+  const validateBuyOrder = () => {
+    let status = true;
+    let validations = {};
+      if (!parseFloat(indicativeSize)) {
+        validations.indicativeSize = ' ';
+        status = false;
+      }
+      if (!parseFloat(cleanPrice)) {
+        validations.cleanPrice = ' ';
+        status = false;
+      }
+    setValidations(validations);
+    return status;
+  };
+
+  const validateIntegerOnly = (characterToValidate) => {
+    return !isNaN(parseInt(characterToValidate)) || !characterToValidate ? true : false;
+  };
+
+  const saveBuyOrder = async () => {
+    if (validateBuyOrder()) {
+      alert(`Indicative Size: ${indicativeSize} \n Clean Price: ${cleanPrice}`)
+    }
+  };
 
     return (
         <React.Fragment>
@@ -59,6 +88,12 @@ const TableList = () => {
                     })}
                 </tbody>
             </table>
+            <div>
+                <h2>Sign In</h2>
+                <input type="text" placeholder="#Token" className={`form-input ${!parseFloat(indicativeSize) && validations.indicativeSize ? 'required-field' : ''}`} onChange={e => validateIntegerOnly(e.nativeEvent.data) && setIndicativeSize(e.target.value)} />
+                <input type="text" placeholder="CHF" className={`form-input ${!parseFloat(cleanPrice) && validations.cleanPrice ? 'required-field' : ''}`} onChange={e => validateIntegerOnly(e.nativeEvent.data) && setCleanPrice(e.target.value)} />
+                <button className="btn btn-primary" onClick={saveBuyOrder}>Login</button>
+            </div>
             { isOpen && <Modal isOpen={isOpen} modalOpen={modalOpen} userData={userData} /> }
         </React.Fragment>
     )

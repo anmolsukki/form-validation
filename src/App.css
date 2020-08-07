@@ -124,3 +124,35 @@
   font-size: 26px;
   color: #0000008a;
 }
+
+/* Form */
+.form-input {
+  width: 50%;
+  height: 40px;
+  border-radius: 5px;
+  margin-top: 20px;
+  border: 1px solid #5944a6;
+  background-color: #d4dbf5;
+}
+
+input:focus {
+  border: 2px solid #5944a6;
+}
+
+.required-field {
+  border-bottom: 2px solid red;
+}
+
+.btn-primary {
+  background-color: #7638c2;
+  border-color: #7638c2;
+  margin-top: 20px;
+  width: 50%;
+  height: 40px;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background-color: #492378;
+  border-color: #492378;
+}
